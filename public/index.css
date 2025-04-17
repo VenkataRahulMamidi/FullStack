@@ -1,0 +1,17 @@
+.opacity{
+    opacity: 0.5;
+}
+#search::placeholder{
+    color: white;
+    opacity: 50%;
+}
+.login{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+.contactus{
+    margin-left: 30%;
+    margin-right: 10%;
+}

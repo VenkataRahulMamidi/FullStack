@@ -1,0 +1,11 @@
+<%- include("partials/header.ejs") %>
+<div class="login">
+<h1>Channel your chakra into that keyboard and go!⭐️</h1>
+<form action="/read" method="POST">
+    <input type="text" name="title" class="form-control mb-3" placeholder="Enter your title here" required />
+    <textarea name="content" class="form-control mb-3" rows="10" placeholder="Write your post..."></textarea>
+    <button class="btn btn-warning">Publish</button>
+  </form>
+</div>
+
+<%- include("partials/footer.ejs") %>

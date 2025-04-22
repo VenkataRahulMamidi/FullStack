@@ -12,7 +12,7 @@
     <form action="/click" method="post">
     
     <div class="container" >
-        <h1>Anime Suggestions</h1>
+        <h1 style="color: red;">Anime Suggestions</h1>
     <div class="option">
         <div>
         <select name="genre" id="genreSelect" class="form-select custom-select-border" required>
@@ -41,11 +41,24 @@
         
       <% if(animeList){ %>
         <% animeList.forEach(anime=>{%>
-           <a href="<%=anime.trailer?.url%>" target="_blank" style="color: inherit;"> <div class="anime-card">
-            <h2 class="anime-title"><%=anime.title%></h2>
-            <img src="<%=anime.images?.jpg?.image_url%>" width="100px">
-            <p class="anime-rank">Score:<%=anime.score%></p>
-      </div></a>
+            <div>
+                <div class="flip-card">
+                        <a href="<%=anime.trailer?.url%>" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="anime-card">
+                                <div class="anime-card-front">
+                                <h2 class="anime-title"><%=anime.title%></h2>
+                                <img src="<%=anime.images?.jpg?.image_url%>" width="100px">
+                                <p class="anime-rank">Score:<%=anime.score%></p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p style="font-size: xx-small;"><span style="font-weight: bold;"> Description: </span> <%=anime.synopsis  %></p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                </div>
+                
+            </div>
        <%  }) %>
         <% } %>
         

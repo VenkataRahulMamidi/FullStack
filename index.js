@@ -37,7 +37,7 @@ app.post("/click", async (req, res) => {
     for(var page=1;page<=10;page++){
     const response = await axios.get(base_url + `anime?genres=${genre}&&limit=20&&page=${page}`); 
     // animeList.push(response.data.data);
-    animeData = response.data.data.filter(anime=>anime.score&&anime.score>score).slice(0,5);
+    animeData = response.data.data.filter(anime=>anime.score&&(anime.score>score&&anime.score<=score+1)).slice(0,5);
     if(animeData.length>0){
       break;
     }

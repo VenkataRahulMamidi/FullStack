@@ -17,7 +17,7 @@
 
   /* Background styling */
   body {
-    background-image: url('image1.jpg'); /* Update path if needed */
+    background-color: black;/* Update path if needed */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -51,9 +51,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: 20px;
   }
+  input::placeholder {
+    color: white;
+    opacity: 0; /* Firefox */
+  }
+  
   
   /* Anime card layout */
   .flip-card {
@@ -69,6 +74,7 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s;
+    
   }
   
   .flip-card:hover .anime-card {
@@ -122,5 +128,10 @@
     position: absolute;
     backface-visibility:hidden;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color:rgb(237, 237, 240);
+  }
+  .search{
+    display: flex;
+    /* align-items: end; */
+    /* flex-direction: row-reverse; */
   }

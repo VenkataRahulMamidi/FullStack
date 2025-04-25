@@ -30,14 +30,32 @@ app.post("/click", async (req, res) => {
   try {
     const genre=req.body.genre;
     const score=req.body.score;
+    const search=req.body.search;
     let animeData=[];
     var result=await axios.get(base_url+"genres/anime");
     var genreList=result.data;
+    let response;
     
     for(var page=1;page<=10;page++){
-    const response = await axios.get(base_url + `anime?genres=${genre}&&limit=20&&page=${page}`); 
+    if(genre){
+    response = await axios.get(`${base_url}anime?genres=${genre}&order_by=score&sort=desc&limit=20&page=${page}`);
+    
+    }
+    else if(search){
+       response = await axios.get(base_url + `anime?q=${search}&order_by=score&sort=desc&limit=20&page=${page}`); 
+    }
+    else{
+      response = await axios.get(`${base_url}anime?order_by=score&sort=desc&limit=20&page=${page}`);
+
+
+    }
     // animeList.push(response.data.data);
-    animeData = response.data.data.filter(anime=>anime.score&&(anime.score>score&&anime.score<=score+1)).slice(0,5);
+
+
+    animeData = response.data.data;
+    if(score){
+    animeData=animeData.filter(anime=>anime.score&&(anime.score>score&&anime.score<=score+1));
+    }
     if(animeData.length>0){
       break;
     }
